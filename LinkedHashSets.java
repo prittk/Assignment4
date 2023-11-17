@@ -6,7 +6,7 @@ import java.util.*;
  * 
  * 
  */
-//This program tests 3 methods of a linked hashset and sees the output on sets.
+//This program tests 3 methods of UNion, difference, and intersection of a linked hashset and sees the output on sets.
 public class LinkedHashSets 
 {
 
@@ -36,21 +36,25 @@ public class LinkedHashSets
 		setUnion(set_of_names, set_of_names2);
 		setDifference(set_of_names, set_of_names2);
 		setIntersection(set_of_names, set_of_names2);
-		
-		//HashSet<String> union = LinkedHashSets.union()
+	
 		
 		
 	}
-	
+	//This method gets all the possible items between the two sets, replaces
 	public static void setUnion(HashSet<String> set1, HashSet<String> set2)
 	{
 		HashSet<String> clone_set1 = new LinkedHashSet<>(set1);
-		clone_set1.addAll(set2);
+		//Hash Sets donnot allow for existing elements to be added again, so we check if a word is part of set, if not add
+		for(String word:set2)
+		{
+			clone_set1.add(word);
+		}
+	
 		
 		System.out.print(clone_set1);
 		
 	}
-	
+	//This removes all set 2 from set 1
 	public static void setDifference(HashSet<String> set1, HashSet<String> set2)
 	{
 		HashSet<String> clone_set1 = new LinkedHashSet<>(set1);
